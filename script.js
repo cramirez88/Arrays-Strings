@@ -23,24 +23,47 @@
 //   return true
 // };
 
-const compress = (s) => {
-  //   two pointers
-  let compress = ''
+// const compress = (s) => {
+//   //   two pointers
+//   let compress = ''
+//   let i = 0;
+//   let j = 0;
+//   while (j <= s.length){
+//     if(s[i] === s[j]){
+//       j++
+//     }else {
+//       let num = j - i
+//       if (num === 1) {
+//         compress += s[i]
+//       } else {
+//         compress += num + s[i]
+//       }
+//        i = j
+//     }
+   
+//   }
+//     return compress
+//   };
+
+
+const uncompress = (s) => {
+  let result = ''
+  let listOfNums = '0123456789'
   let i = 0;
   let j = 0;
-  while (j <= s.length){
-    if(s[i] === s[j]){
-      j++
+  while (j < s.length){
+    if(listOfNums.includes(s[j])){
+      j += 1
     }else {
-      let num = j - i
-      if (num === 1) {
-        compress += s[i]
-      } else {
-        compress += num + s[i]
+//       get number
+      let number = Number(s.slice(i, j))
+//       now that i have a number, I want to repeat the character that many times
+      for (let count = 0; count < number; count+=1){
+        result += s[j]
       }
-       i = j
+      j += 1
+      i = j
     }
-   
   }
-    return compress
-  };
+  return result
+};
