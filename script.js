@@ -69,26 +69,44 @@
 // };
 
 
-const anagrams = (s1, s2) => {
-  //   two hash maps to keep track of number of times each charctaer is repeated
-    let stringOne = {}
-    for (let char of s1){
-      if(!(char in stringOne)){
-         stringOne[char] = 0
-         }
-      stringOne[char]++
-  }
-    for(let char of s2){
-      if(char in stringOne === undefined){
-        return false
-      }
-      stringOne[char] -= 1
-    }
-    for(let char in stringOne){
-      if(stringOne[char] !== 0){
-        return false
-      }
-    }
+// const anagrams = (s1, s2) => {
+//   //   two hash maps to keep track of number of times each charctaer is repeated
+//     let stringOne = {}
+//     for (let char of s1){
+//       if(!(char in stringOne)){
+//          stringOne[char] = 0
+//          }
+//       stringOne[char]++
+//   }
+//     for(let char of s2){
+//       if(char in stringOne === undefined){
+//         return false
+//       }
+//       stringOne[char] -= 1
+//     }
+//     for(let char in stringOne){
+//       if(stringOne[char] !== 0){
+//         return false
+//       }
+//     }
   
-  return true
-  };
+//   return true
+//   };
+
+
+const mostFrequentChar = (s) => {
+  let count = {}
+  let max = null
+  for (let char of s){
+    if(!(char in count)){
+      count[char] = 0
+    }
+    count[char]++
+  }
+  for(let char of s){
+    if(max === null || count[char] > count[max]){
+      max = char
+    }  
+  }
+  return max
+};
