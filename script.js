@@ -46,24 +46,49 @@
 //   };
 
 
-const uncompress = (s) => {
-  let result = ''
-  let listOfNums = '0123456789'
-  let i = 0;
-  let j = 0;
-  while (j < s.length){
-    if(listOfNums.includes(s[j])){
-      j += 1
-    }else {
-//       get number
-      let number = Number(s.slice(i, j))
-//       now that i have a number, I want to repeat the character that many times
-      for (let count = 0; count < number; count+=1){
-        result += s[j]
-      }
-      j += 1
-      i = j
-    }
+// const uncompress = (s) => {
+//   let result = ''
+//   let listOfNums = '0123456789'
+//   let i = 0;
+//   let j = 0;
+//   while (j < s.length){
+//     if(listOfNums.includes(s[j])){
+//       j += 1
+//     }else {
+// //       get number
+//       let number = Number(s.slice(i, j))
+// //       now that i have a number, I want to repeat the character that many times
+//       for (let count = 0; count < number; count+=1){
+//         result += s[j]
+//       }
+//       j += 1
+//       i = j
+//     }
+//   }
+//   return result
+// };
+
+
+const anagrams = (s1, s2) => {
+  //   two hash maps to keep track of number of times each charctaer is repeated
+    let stringOne = {}
+    for (let char of s1){
+      if(!(char in stringOne)){
+         stringOne[char] = 0
+         }
+      stringOne[char]++
   }
-  return result
-};
+    for(let char of s2){
+      if(char in stringOne === undefined){
+        return false
+      }
+      stringOne[char] -= 1
+    }
+    for(let char in stringOne){
+      if(stringOne[char] !== 0){
+        return false
+      }
+    }
+  
+  return true
+  };
