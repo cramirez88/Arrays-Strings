@@ -94,19 +94,33 @@
 //   };
 
 
-const mostFrequentChar = (s) => {
-  let count = {}
-  let max = null
-  for (let char of s){
-    if(!(char in count)){
-      count[char] = 0
+// const mostFrequentChar = (s) => {
+//   let count = {}
+//   let max = null
+//   for (let char of s){
+//     if(!(char in count)){
+//       count[char] = 0
+//     }
+//     count[char]++
+//   }
+//   for(let char of s){
+//     if(max === null || count[char] > count[max]){
+//       max = char
+//     }  
+//   }
+//   return max
+// };
+
+
+const pairProduct = (numbers, targetProduct) => {
+  // loop through array
+  // if target product / current number iteration is in obj then return [i, obj[targetProduct[number[i]]]]
+    let obj = {}
+    for (let i = 0; i < numbers.length; i++){
+      if (targetProduct / numbers[i] in obj){
+        return [i, obj[targetProduct/numbers[i]]]
+      }
+      obj[numbers[i]] = i
     }
-    count[char]++
-  }
-  for(let char of s){
-    if(max === null || count[char] > count[max]){
-      max = char
-    }  
-  }
-  return max
-};
+  };
+  
