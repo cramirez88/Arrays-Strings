@@ -112,15 +112,27 @@
 // };
 
 
-const pairProduct = (numbers, targetProduct) => {
-  // loop through array
-  // if target product / current number iteration is in obj then return [i, obj[targetProduct[number[i]]]]
-    let obj = {}
-    for (let i = 0; i < numbers.length; i++){
-      if (targetProduct / numbers[i] in obj){
-        return [i, obj[targetProduct/numbers[i]]]
-      }
-      obj[numbers[i]] = i
-    }
-  };
+// const pairProduct = (numbers, targetProduct) => {
+//   // loop through array
+//   // if target product / current number iteration is in obj then return [i, obj[targetProduct[number[i]]]]
+//     let obj = {}
+//     for (let i = 0; i < numbers.length; i++){
+//       if (targetProduct / numbers[i] in obj){
+//         return [i, obj[targetProduct/numbers[i]]]
+//       }
+//       obj[numbers[i]] = i
+//     }
+//   };
   
+
+// const intersection = (a, b) => {
+//   // return elements into a new array that have the same values
+//   let newArr = []
+//   let setA = new Set(a)
+//   for(let x of b){
+//     if(setA.has(x)){
+//       newArr.push(x)
+//     }
+//   }
+//   return newArr
+// };
