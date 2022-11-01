@@ -201,3 +201,15 @@
 //   //   otherwise, return null
 //     return null
 //   };
+
+
+const reverseList = (head) => {
+  let prev = null
+  while(head !== null){
+    let temp = head.next
+    head.next = prev
+    prev = head
+    head = temp
+  }
+  return prev
+};
