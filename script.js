@@ -152,3 +152,14 @@
 //   }
 //   return nums
 // };
+
+
+const linkedListValues = (head) => {
+    // iterative approach
+    let arrayOfVals = []
+    while(head !== null){
+      arrayOfVals.push(head.val)
+      head = head.next
+    }
+    return arrayOfVals
+  };
