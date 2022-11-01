@@ -174,3 +174,14 @@
 //     }
 //     return sum
 //   };
+
+const linkedListFind = (head, target) => {
+  //   iterate through the linked list: 
+  //   if the node has a value === target return true 
+  //   if not return false
+    while(head !== null){
+      if(head.val === target) return true
+      head = head.next
+    }
+    return false
+  };
