@@ -154,12 +154,23 @@
 // };
 
 
-const linkedListValues = (head) => {
-    // iterative approach
-    let arrayOfVals = []
-    while(head !== null){
-      arrayOfVals.push(head.val)
-      head = head.next
-    }
-    return arrayOfVals
-  };
+// const linkedListValues = (head) => {
+//     // iterative approach
+//     let arrayOfVals = []
+//     while(head !== null){
+//       arrayOfVals.push(head.val)
+//       head = head.next
+//     }
+//     return arrayOfVals
+//   };
+
+// const sumList = (head) => {
+//   //   starting at the head, I want to iterate through the linked list 
+//   //   and add the value to the total sum 
+//     let sum = 0;
+//     while(head !== null){
+//       sum += head.val
+//       head = head.next
+//     }
+//     return sum
+//   };
