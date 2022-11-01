@@ -175,13 +175,29 @@
 //     return sum
 //   };
 
-const linkedListFind = (head, target) => {
-  //   iterate through the linked list: 
-  //   if the node has a value === target return true 
-  //   if not return false
-    while(head !== null){
-      if(head.val === target) return true
-      head = head.next
-    }
-    return false
-  };
+// const linkedListFind = (head, target) => {
+//   //   iterate through the linked list: 
+//   //   if the node has a value === target return true 
+//   //   if not return false
+//     while(head !== null){
+//       if(head.val === target) return true
+//       head = head.next
+//     }
+//     return false
+//   };
+
+// const getNodeValue = (head, index) => {
+//   //   iterate through the linked list: 
+//     //  keep track of index through variable
+//     let currentIndex = 0
+//     //   if index variable === index return val at the index
+//     while(head !== null){
+//       if(currentIndex === index){
+//         return head.val
+//       }
+//       currentIndex++
+//       head = head.next
+//     }
+//   //   otherwise, return null
+//     return null
+//   };
