@@ -214,25 +214,44 @@
 //   return prev
 // };
 
-const zipperLists = (head1, head2) => {
-  let head = head1
-  let tail = head
-  let firstListHead = head1.next
-  let secondListHead = head2
-  let count = 0
-  while(firstListHead !== null && secondListHead !== null){
-    if(count % 2 === 0){
-      tail.next = secondListHead
-      secondListHead = secondListHead.next
+// const zipperLists = (head1, head2) => {
+//   let head = head1
+//   let tail = head
+//   let firstListHead = head1.next
+//   let secondListHead = head2
+//   let count = 0
+//   while(firstListHead !== null && secondListHead !== null){
+//     if(count % 2 === 0){
+//       tail.next = secondListHead
+//       secondListHead = secondListHead.next
+//     }else {
+//       tail.next = firstListHead
+//       firstListHead = firstListHead.next
+//     }
+//     count++
+//     tail = tail.next
+//   }
+//   if(firstListHead !== null) tail.next = firstListHead
+//   if(secondListHead !== null) tail.next = secondListHead
+//   return head
+// };
+
+const mergeLists = (head1, head2) => {
+  let dummy = new Node(null)
+  let tail = dummy
+  let firstList = head1
+  let secondList = head2
+  while(firstList !== null && secondList !== null){
+    if(firstList.val < secondList.val){
+      tail.next = firstList
+      firstList = firstList.next
     }else {
-      tail.next = firstListHead
-      firstListHead = firstListHead.next
+      tail.next = secondList
+      secondList = secondList.next
     }
-    count++
     tail = tail.next
   }
-  if(firstListHead !== null) tail.next = firstListHead
-  if(secondListHead !== null) tail.next = secondListHead
-  return head
+  if(firstList !== null) tail.next = firstList
+  if(secondList !== null) tail.next = secondList
+  return dummy.next
 };
-
