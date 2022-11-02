@@ -203,13 +203,36 @@
 //   };
 
 
-const reverseList = (head) => {
-  let prev = null
-  while(head !== null){
-    let temp = head.next
-    head.next = prev
-    prev = head
-    head = temp
+// const reverseList = (head) => {
+//   let prev = null
+//   while(head !== null){
+//     let temp = head.next
+//     head.next = prev
+//     prev = head
+//     head = temp
+//   }
+//   return prev
+// };
+
+const zipperLists = (head1, head2) => {
+  let head = head1
+  let tail = head
+  let firstListHead = head1.next
+  let secondListHead = head2
+  let count = 0
+  while(firstListHead !== null && secondListHead !== null){
+    if(count % 2 === 0){
+      tail.next = secondListHead
+      secondListHead = secondListHead.next
+    }else {
+      tail.next = firstListHead
+      firstListHead = firstListHead.next
+    }
+    count++
+    tail = tail.next
   }
-  return prev
+  if(firstListHead !== null) tail.next = firstListHead
+  if(secondListHead !== null) tail.next = secondListHead
+  return head
 };
+
