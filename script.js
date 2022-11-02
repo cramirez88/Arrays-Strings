@@ -236,22 +236,31 @@
 //   return head
 // };
 
-const mergeLists = (head1, head2) => {
-  let dummy = new Node(null)
-  let tail = dummy
-  let firstList = head1
-  let secondList = head2
-  while(firstList !== null && secondList !== null){
-    if(firstList.val < secondList.val){
-      tail.next = firstList
-      firstList = firstList.next
-    }else {
-      tail.next = secondList
-      secondList = secondList.next
-    }
-    tail = tail.next
+// const mergeLists = (head1, head2) => {
+//   let dummy = new Node(null)
+//   let tail = dummy
+//   let firstList = head1
+//   let secondList = head2
+//   while(firstList !== null && secondList !== null){
+//     if(firstList.val < secondList.val){
+//       tail.next = firstList
+//       firstList = firstList.next
+//     }else {
+//       tail.next = secondList
+//       secondList = secondList.next
+//     }
+//     tail = tail.next
+//   }
+//   if(firstList !== null) tail.next = firstList
+//   if(secondList !== null) tail.next = secondList
+//   return dummy.next
+// };
+
+const isUnivalueList = (head) => {
+  let current = head
+  while(current !== null){
+    if(head.val !== current.val) return false
+    current = current.next
   }
-  if(firstList !== null) tail.next = firstList
-  if(secondList !== null) tail.next = secondList
-  return dummy.next
+  return true
 };
