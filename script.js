@@ -286,16 +286,39 @@
 // };
 
 
-const removeNode = (head, targetVal) => {
-  if(head.val === targetVal) return head.next
+// const removeNode = (head, targetVal) => {
+//   if(head.val === targetVal) return head.next
+//   let current = head
+//   let prev = null 
+//   while(current !== null){
+//     if(current.val === targetVal){
+//       prev.next = current.next
+//       break
+//     }
+//     prev = current
+//     current = current.next
+//   }
+//   return head
+// };
+
+
+const insertNode = (head, value, index) => {
+  let currentIndex = 0
   let current = head
-  let prev = null 
+  if(index === 0) {
+    let temps = head
+    let newhead = new Node(value)
+    newhead.next = temps
+    return newhead
+  }
   while(current !== null){
-    if(current.val === targetVal){
-      prev.next = current.next
-      break
+    if(currentIndex === index - 1){
+      let newNode = new Node(value)
+      let temp  = current.next
+      current.next = newNode
+      current.next.next = temp
     }
-    prev = current
+    currentIndex++
     current = current.next
   }
   return head
