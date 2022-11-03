@@ -265,23 +265,39 @@
 //   return true
 // };
 
-const longestStreak = (head) => {
-  let maxStreak = 0
-  let currentStreak = 0
+// const longestStreak = (head) => {
+//   let maxStreak = 0
+//   let currentStreak = 0
+//   let current = head
+//   let prev = null
+//   while(current !== null){
+//     if(current.val === prev){
+//       currentStreak++
+//     }else {
+//       currentStreak = 1
+//     }
+//     if(currentStreak > maxStreak){
+//       maxStreak = currentStreak
+//     }
+//     prev = current.val
+//     current = current.next
+//   }
+//   return maxStreak
+// };
+
+
+const removeNode = (head, targetVal) => {
+  if(head.val === targetVal) return head.next
   let current = head
-  let prev = null
+  let prev = null 
   while(current !== null){
-    if(current.val === prev){
-      currentStreak++
-    }else {
-      currentStreak = 1
+    if(current.val === targetVal){
+      prev.next = current.next
+      break
     }
-    if(currentStreak > maxStreak){
-      maxStreak = currentStreak
-    }
-    prev = current.val
+    prev = current
     current = current.next
   }
-  return maxStreak
+  return head
 };
 
