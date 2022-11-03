@@ -256,11 +256,32 @@
 //   return dummy.next
 // };
 
-const isUnivalueList = (head) => {
+// const isUnivalueList = (head) => {
+//   let current = head
+//   while(current !== null){
+//     if(head.val !== current.val) return false
+//     current = current.next
+//   }
+//   return true
+// };
+
+const longestStreak = (head) => {
+  let maxStreak = 0
+  let currentStreak = 0
   let current = head
+  let prev = null
   while(current !== null){
-    if(head.val !== current.val) return false
+    if(current.val === prev){
+      currentStreak++
+    }else {
+      currentStreak = 1
+    }
+    if(currentStreak > maxStreak){
+      maxStreak = currentStreak
+    }
+    prev = current.val
     current = current.next
   }
-  return true
+  return maxStreak
 };
+
