@@ -302,25 +302,36 @@
 // };
 
 
-const insertNode = (head, value, index) => {
-  let currentIndex = 0
-  let current = head
-  if(index === 0) {
-    let temps = head
-    let newhead = new Node(value)
-    newhead.next = temps
-    return newhead
-  }
-  while(current !== null){
-    if(currentIndex === index - 1){
-      let newNode = new Node(value)
-      let temp  = current.next
-      current.next = newNode
-      current.next.next = temp
-    }
-    currentIndex++
-    current = current.next
-  }
-  return head
-};
+// const insertNode = (head, value, index) => {
+//   let currentIndex = 0
+//   let current = head
+//   if(index === 0) {
+//     let temps = head
+//     let newhead = new Node(value)
+//     newhead.next = temps
+//     return newhead
+//   }
+//   while(current !== null){
+//     if(currentIndex === index - 1){
+//       let newNode = new Node(value)
+//       let temp  = current.next
+//       current.next = newNode
+//       current.next.next = temp
+//     }
+//     currentIndex++
+//     current = current.next
+//   }
+//   return head
+// };
+
+
+// const createLinkedList = (values) => {
+//   let dummy = new Node(null)
+//   let tail = dummy
+//   for(let vals of values){
+//     tail.next = new Node(vals)
+//     tail = tail.next
+//   }
+//   return dummy.next
+// };
 
