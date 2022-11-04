@@ -335,3 +335,28 @@
 //   return dummy.next
 // };
 
+const addLists = (head1, head2) => {
+  let currentOne = head1
+  let currentTwo = head2
+  let dummyHead = new Node(null)
+  let tail = dummyHead
+  let sum = 0
+  let carry = 0
+  while(currentOne !== null || currentTwo !== null || carry !== 0){
+    let val1 = currentOne === null? 0: currentOne.val
+    let val2 = currentTwo === null? 0 : currentTwo.val
+    sum = val1 + val2 + carry
+    carry = sum > 9? 1: 0;
+    console.log(sum)
+    
+    let digit = sum % 10
+    console.log(digit)
+    tail.next = new Node(digit)
+    tail = tail.next
+    
+    if(currentOne !== null) currentOne = currentOne.next
+    if(currentTwo !== null) currentTwo = currentTwo.next
+  }
+  return dummyHead.next;
+};
+
